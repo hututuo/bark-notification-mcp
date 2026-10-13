@@ -85,6 +85,7 @@ const result = await bark.callTool('bark_status', {}, callerRequest);
 
 ## 文档与示例
 
+- [Bark → 快捷指令 → iPhone 闹钟扩展方案（含逐步设置与验收）](docs/SHORTCUTS_ALARM_EXTENSION.md)
 - [部署、现有 iCloud 服务组合和用户验收](docs/DEPLOYMENT.md)
 - [Agent 接手说明](AGENTS.md)
 - [安全边界](SECURITY.md)
@@ -99,3 +100,9 @@ const result = await bark.callTool('bark_status', {}, callerRequest);
 可与独立的 [iCloud Calendar MCP](https://github.com/hututuo/icloud-calendar-mcp) 组合。Bark 模块不依赖 CalDAV，也不会因集成而更改日历凭据、日历写入开关或身份绑定。
 
 提交改动前请读 [贡献说明](CONTRIBUTING.md)。发布源码和部署在线服务是不同操作；不要把已配置的实例或自己的 key 公开。
+
+## 扩展：通知联动快捷指令与闹钟
+
+希望通知到达后同步手机闹钟，可按 [中文扩展方案](docs/SHORTCUTS_ALARM_EXTENSION.md) 搭建：Bark 发固定低敏标记，iPhone 运行预设快捷指令，读取指定 iCloud 日历，再在本机“时钟”建闹钟。文档覆盖 iOS 27 通知触发、旧系统手动/定时兜底、23 小时窗口、重复去重、取消/改期、同步延迟和逐项验收。
+
+这是文档级设计，未附带安装好的快捷指令；手机锁屏触发与实际响铃仍需实机验收。模块本身继续只发普通通知，不从云端直接操作 Clock，也没有新增 `ttl` 或自定义 URL scheme 支持。
