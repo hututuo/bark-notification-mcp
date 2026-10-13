@@ -1,0 +1,13 @@
+{
+  "name": "bark-notification-mcp",
+  "version": "0.1.1",
+  "private": true,
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/hututuo/bark-notification-mcp.git" },
+  "type": "module",
+  "description": "Server-side, owner-bound Bark notification adapter for private MCP services.",
+  "exports": { ".": "./src/index.js", "./memory-guard": "./src/memory-guard.js" },
+  "files": ["src", "examples", "docs", "README.md", "AGENTS.md", "SECURITY.md", "LICENSE", "THIRD_PARTY_NOTICES.md", ".env.example"],
+  "scripts": { "test": "node --test tests/*.test.js", "check": "node scripts/check.mjs" },
+  "engines": { "node": ">=22" }
+}
